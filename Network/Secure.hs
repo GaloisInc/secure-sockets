@@ -91,15 +91,18 @@ import Network.Secure.Identity
 -- > do
 -- >   me   <- readFile "b.key" >>= readIdentity
 -- >   you  <- readFile "a.pub" >>= readIdentity
--- >   conn <- connect me you ("a.com", "4242")
+-- >   conn <- connect me [you] ("a.com", "4242")
 --
 -- Et voila! From there on, you can communicate using the usual
 -- socket-ish API:
 --
 -- > do
 -- >   write conn "hello?"
--- >   read conn >>= putStrLn
+-- >   read conn 128 >>= putStrLn
 -- >   close conn
+--
+-- N.B. The program should start with 'withOpenSSL' in order to initialize SSL
+-- (@main = withOpenSSL $ do@).
 
 -- $internals
 --
