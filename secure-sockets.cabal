@@ -21,10 +21,10 @@ Library
                        Network.Secure.Identity
   Other-modules:       Network.Secure.Connection
   Build-depends:       base ==4.*,
-                       bytestring ==0.9.*,
+                       bytestring >=0.9,
                        directory,
                        HsOpenSSL >=0.10.2,
-                       network ==2.*,
+                       network >=2,
                        transformers >=0.2,
                        process
   ghc-prof-options:    -auto-all
